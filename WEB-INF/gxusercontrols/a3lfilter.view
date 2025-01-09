@@ -1,0 +1,12 @@
+<script>
+gx.fx.obs.addObserver("{{gxTpr_observer}}{{observer}}", window, setFilter{{gxTpr_a3l_filter_id}}{{a3l_filter_id}});
+gx.fx.obs.addObserver("grid.onafterrefresh", window, setFilter{{gxTpr_a3l_filter_id}}{{a3l_filter_id}});
+	
+	
+	function setFilter{{gxTpr_a3l_filter_id}}{{a3l_filter_id}}() {
+		console.log('setfilter');
+		if(document.getElementById('{{gxTpr_filter_orig}}{{filter_orig}}') && document.getElementById('{{gxTpr_a3l_filter_id}}{{a3l_filter_id}}')){
+			document.getElementById('{{gxTpr_filter_orig}}{{filter_orig}}').innerHTML = document.getElementById('{{gxTpr_a3l_filter_id}}{{a3l_filter_id}}').innerHTML;
+		}
+	}
+</script>

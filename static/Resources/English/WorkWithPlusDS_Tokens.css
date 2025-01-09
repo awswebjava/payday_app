@@ -1,0 +1,213 @@
+:root
+{
+	--colors_HeaderForecolor : #8c8d8e;
+	--colors_PDF : #ea4c3a;
+	--colors_ExcelColor : #08743b;
+	--colors_Danger : #f56a67;
+	--colors_Danger_CondForm : #dd4b39;
+	--colors_Danger_CondForm_Row_Background : #f2dede;
+	--colors_Danger_CondForm_Action : #e5cccc;
+	--colors_Danger_CondForm_Action_Hover : rgba(245,106,103,0.5);
+	--colors_Warning : #f39c12;
+	--colors_Warning_CondForm : #fb6e52;
+	--colors_Warning_CondForm_Row_Background : #faf2cc;
+	--colors_Warning_CondForm_Action : #fed6be;
+	--colors_Warning_CondForm_Action_Hover : rgba(251,110,82,0.5);
+	--colors_Success_CondForm : #00a65a;
+	--colors_Success_CondForm_Row_Background : #dff0d8;
+	--colors_Success_CondForm_Action : #b9ccb7;
+	--colors_Success_CondForm_Action_Hover : rgba(0,166,90,0.5);
+	--colors_Info_CondForm : #3c8dbc;
+	--colors_Info_CondForm_Row_Background : #e0f1ff;
+	--colors_Info_CondForm_Action : #bcdcf5;
+	--colors_Info_CondForm_Action_Hover : rgba(60,141,188,0.5);
+	--colors_InfoLight : #00c0ef;
+	--fonts_primary-regular : Inter;
+	--fonts_Second-font : Roboto;
+	--fontSizes_font-icon-xxs : 10px;
+	--fontSizes_font-icon-xs : 12px;
+	--fontSizes_font-icon-s : 16px;
+	--fontSizes_font-icon-m : 19px;
+	--fontSizes_font-icon-l : 24px;
+	--fontSizes_font-icon-xl : 36px;
+	--fontSizes_font-icon-14px : 14px;
+	--fontSizes_font-icon-15px : 15px;
+	--borders_xs : 1px;
+	--borders_s : 2px;
+	--radius_s : 10px;
+	--radius_m : 12px;
+	--radius_l : 14px;
+
+}
+
+[gx-data-base-color="Custom"]
+{
+	--colors_BaseColor : #4F46E5;
+	--colors_BaseColorForecolor : #4F46E5;
+	--colors_ActionBorder_and_FocusColor : #362DCC;
+	--colors_ActionHover : #453CDB;
+	--colors_ActionHoverBorder : #3B32D1;
+	--colors_BaseColorShadow : rgba(79, 70, 229, 0.7);
+	--colors_BaseForecolor80 : rgba(255,255,255,0.8);
+	--colors_BaseColor30 : rgba(79, 70, 229, 0.3);
+	--colors_BaseForecolor : white;
+	--colors_BackgroundColor : #FFFFFF;
+	--colors_BackgroundColorDUMMY_BORRAR : #FFFFFF;
+
+}
+
+[gx-data-background-color="Dark"]
+{
+	--colors_BaseColor : #8f88ff;
+	--colors_BaseColorCirculo : #8f88ff;
+	--colors_BaseColorTransparent : #27272a;
+	--colors_BaseColorTransparentHover : #27272a;
+	--colors_BaseColorTransparentFocus : #27272a;
+	--colors_BaseColorTransparent_new : #27272a;
+	--colors_BaseColorTransparentHover_new : #27272a;
+	--colors_BaseColorTransparentFocus_new : #27272a;
+	--colors_BaseColorTransparentHoverWelcome : #27272a;
+	--colors_BaseColorForecolor : white;
+	--colors_gray01 : #27272a;
+	--colors_gray02 : #222E34;
+	--colors_gray03 : #2e393f;
+	--colors_gray04 : #383f48;
+	--colors_gray05 : #262626;
+	--colors_gray06 : #5D6F78;
+	--colors_gray07 : #99abb4;
+	--colors_gray08 : #D9DFE2;
+	--colors_gray09 : #FFFFFF;
+	--colors_gray10 : #262626;
+	--colors_gray11 : #000000;
+	--colors_gray12 : #3f3f46;
+	--colors_gray13 : #262626;
+	--colors_gray14 : #D9DFE2;
+	--colors_gray15 : #D9DFE2;
+	--colors_gray16 : #D9DFE2;
+	--colors_gray17 : #D9DFE2;
+	--colors_gray18 : #FFFFFF;
+	--colors_gray19 : #FFFFFF;
+	--colors_grayTest : #FFFFFF;
+	--colors_grayBadge : #D9DFE2;
+	--colors_grayActionDelete : #f31260;
+	--colors_grayAction : #A1A1AA;
+	--colors_BackgroundColor : #383f48;
+	--colors_DataBackgroundColor : #000000;
+	--colors_DataBackgroundColor_card : #000000;
+	--colors_DataBackgroundColor_header : #000000;
+	--colors_DataBackgroundColor_Subheader : #000000;
+	--colors_DataBackgroundColor_btn-default-Focus : #7c76df;
+	--colors_DataBackgroundColor_Button : #000000;
+	--colors_DataBackgroundColor_ButtonColumnSelector : #000000;
+	--colors_GridForecolor : #99abb4;
+	--colors_GridActionIconColor : #99abb4;
+	--colors_GridTitleColor : White;
+	--colors_HeaderForecolor : #99ABB4;
+	--colors_HorizontalMenu_SubmenuForecolor : #99abb4;
+	--colors_HorizontalBackgroundColor_Forecolor : White;
+	--colors_scrollColor : #4f46e500;
+	--colors_badgeBackground : #273238;
+	--colors_badgeBackgroundHoverFocus : #273238;
+	--colors_badgeBackgroundHoverFocusBorder : #273238;
+	--colors_TableShortCut : black;
+	--colors_LegajoHeaderAvatarBorder : #273238;
+	--colors_LegajoHeaderColorShadow : Transparent;
+	--colors_LegajoHeaderTableShortcutBorder : black;
+	--colors_LegajoHeaderTableShortcut : Transparent;
+	--colors_LegajoHeaderBackground1 : #383f48;
+	--colors_LegajoHeaderBackground2 : #383f48;
+
+}
+
+[gx-data-background-color="Light"]
+{
+	--colors_BaseColor : #4F46E5;
+	--colors_BaseColorCirculo : #7B75EC;
+	--colors_BaseColorTransparent : #f4f4f5;
+	--colors_BaseColorTransparentHover : #F6F6F7;
+	--colors_BaseColorTransparentFocus : #F6F6F7;
+	--colors_BaseColorTransparent_new : #EDECFF;
+	--colors_BaseColorTransparentFocus_new : #EDECFF;
+	--colors_BaseColorTransparentHover_new : #EDECFF;
+	--colors_BaseColorTransparentHoverWelcome : #f8f8f8;
+	--colors_gray01 : #fbfbfb;
+	--colors_gray02 : #f7f7f7;
+	--colors_gray03 : #f5f4f4;
+	--colors_gray04 : #eee;
+	--colors_gray05 : #eee;
+	--colors_gray06 : #E5E7EB;
+	--colors_gray07 : #8c8d8e;
+	--colors_gray08 : #71717a;
+	--colors_gray09 : #4E4E4E;
+	--colors_gray10 : #EEEEEE;
+	--colors_gray11 : #d2d2d2;
+	--colors_gray12 : #e5e7eb;
+	--colors_gray13 : #e4e4e7;
+	--colors_gray14 : #71717a;
+	--colors_gray15 : #d4d4d8;
+	--colors_gray16 : #c2c2c2;
+	--colors_gray17 : #a1a1aa;
+	--colors_gray18 : #000000;
+	--colors_gray19 : #3f3f46;
+	--colors_grayTest : #000000;
+	--colors_grayBadge : #E8E8EA;
+	--colors_grayActionDelete : #f31260;
+	--colors_grayAction : #A1A1AA;
+	--colors_DataBackgroundColor : #fff;
+	--colors_DataBackgroundColor_card : #FCFCFC;
+	--colors_DataBackgroundColor_header : #fafafa;
+	--colors_DataBackgroundColor_Subheader : white;
+	--colors_DataBackgroundColor_btn-default-Focus : #4F46E5;
+	--colors_DataBackgroundColor_Button : #3B32D1;
+	--colors_DataBackgroundColor_ButtonColumnSelector : #fafafa;
+	--colors_GridForecolor : #000;
+	--colors_GridActionIconColor : #fff;
+	--colors_HorizontalMenu_SubmenuForecolor : #575B5D;
+	--colors_GridTitleColor : #3B32D1;
+	--colors_HorizontalBackgroundColor_Forecolor : #727272;
+	--colors_scrollColor : #4f46e500;
+	--colors_badgeBackground : #fafafa;
+	--colors_badgeBackgroundHoverFocus : #fdfdfd;
+	--colors_badgeBackgroundHoverFocusBorder : #E5E7EB;
+	--colors_TableShortCut : #fbfbff;
+	--colors_LegajoHeaderAvatarBorder : White;
+	--colors_LegajoHeaderColorShadow : #bfbfbf40;
+	--colors_LegajoHeaderTableShortcutBorder : #d8d3ff;
+	--colors_LegajoHeaderTableShortcut : #fbfbff;
+	--colors_LegajoHeaderBackground1 : #aa80f940;
+	--colors_LegajoHeaderBackground2 : #4f46e54d;
+
+}
+
+[gx-data-font-size="Small"]
+{
+	--fontSizes_xs : 9.9px;
+	--fontSizes_s : 12.6px;
+	--fontSizes_m : 16.2px;
+	--fontSizes_l : 19.8px;
+	--fontSizes_xl : 25.2px;
+	--fontSizes_xxl : 31.6px;
+
+}
+
+[gx-data-font-size="Medium"]
+{
+	--fontSizes_xs : 11px;
+	--fontSizes_s : 14px;
+	--fontSizes_m : 18px;
+	--fontSizes_l : 22px;
+	--fontSizes_xl : 28px;
+	--fontSizes_xxl : 34px;
+
+}
+
+[gx-data-font-size="Large"]
+{
+	--fontSizes_xs : 12.1px;
+	--fontSizes_s : 15.4px;
+	--fontSizes_m : 19.8px;
+	--fontSizes_l : 24.2px;
+	--fontSizes_xl : 30.8px;
+	--fontSizes_xxl : 37.4px;
+
+}

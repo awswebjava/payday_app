@@ -1,0 +1,366 @@
+:root
+{
+	--GX-Image_PageFirst : url(../PageFirst.png);
+	--GX-Image_PageLast : url(../PageLast.png);
+	--GX-Image_PageNext : url(../PageNext.png);
+	--GX-Image_PagePrevious : url(../PagePrevious.png);
+	--GX-Image_VideoDownload : url(../VideoDownload.png);
+	--GX-Image_AudioDownload : url(../AudioDownload.png);
+	--GX-Image_ActionDisplay : url(../ActionDisplay.png);
+	--GX-Image_ActionInsert : url(../ActionInsert.gif);
+	--GX-Image_ActionCancel : url(../ActionCancel.png);
+	--GX-Image_GenericFilter : url(../GenericFilter.png);
+	--GX-Image_SelectRow : url(../SelectRow.png);
+	--GX-Image_MultimediaEdit : url(../MultimediaEdit.png);
+	--GX-Image_MultimediaClear : url(../MultimediaClear.png);
+	--GX-Image_PlaceHolderVideo : url(../PlaceHolderVideo.png);
+	--GX-Image_PlaceHolderImage : url(../PlaceHolderImage.png);
+	--GX-Image_PlaceHolderAudio : url(../PlaceHolderAudio.png);
+	--GX-Image_ActionDelete : url(../ActionDelete.png);
+	--GX-Image_ActionUpdate : url(../ActionUpdate.png);
+	--GX-Image_locateMe : url(../locateMe.png);
+	--GX-Image_calendar : url(../calendar.png);
+	--GX-Image_PoweredByGeneXus : url(../PoweredByGeneXus.png);
+	--GX-Image_DeleteRow : url(../DeleteRow.gif);
+	--GX-Image_UndeleteRow : url(../UndeleteRow.gif);
+	--GX-Image_SmallImageLogin : url(../SmallImageLogin.png);
+	--GX-Image_Logo_Login : url(../Logo_Login.png);
+	--GX-Image_NotAuthorizedImage : url(../NotAuthorizedImage.png);
+	--GX-Image_prompt : url(../prompt.png);
+	--GX-Image_a3l_icons8_Menu_32 : url(../a3l_icons8_Menu_32.png);
+	--GX-Image_a3l_icons8_user_32 : url(../a3l_icons8_user_32.png);
+	--GX-Image_ActionAdd : url(../ActionAdd.png);
+	--GX-Image_ActionBack : url(../ActionBack.png);
+	--GX-Image_ActionCleanFilters : url(../ActionCleanFilters.png);
+	--GX-Image_ActionCopyRecord : url(../ActionCopyRecord.jpg);
+	--GX-Image_ActionCSV : url(../ActionCSV.png);
+	--GX-Image_ActionExport : url(../ActionExport.png);
+	--GX-Image_ActionExportReport : url(../ActionExportReport.png);
+	--GX-Image_ActionFiltersClean : url(../ActionFiltersClean.png);
+	--GX-Image_ActionFiltersSave : url(../ActionFiltersSave.png);
+	--GX-Image_ActionManage : url(../ActionManage.png);
+	--GX-Image_ActionManageFilters : url(../ActionManageFilters.png);
+	--GX-Image_ActionNewDynamicFilter : url(../ActionNewDynamicFilter.png);
+	--GX-Image_ActionRemoveDynamicFilter : url(../ActionRemoveDynamicFilter.png);
+	--GX-Image_ActionSave : url(../ActionSave.png);
+	--GX-Image_AjustesIcon : url(../AjustesIcon.png);
+	--GX-Image_ArabicIcon : url(../ArabicIcon.png);
+	--GX-Image_AssociationItemsLeft : url(../AssociationItemsLeft.png);
+	--GX-Image_AssociationItemsRight : url(../AssociationItemsRight.png);
+	--GX-Image_AssociationLeft : url(../AssociationLeft.png);
+	--GX-Image_AssociationRight : url(../AssociationRight.png);
+	--GX-Image_AttHelpIcon : url(../AttHelpIcon.png);
+	--GX-Image_BackgroundImage : url(../BackgroundImage.png);
+	--GX-Image_BtnDeleteImage : url(../BtnDeleteImage.png);
+	--GX-Image_BtnDisplayImage : url(../BtnDisplayImage.png);
+	--GX-Image_BtnUpdateImage : url(../BtnUpdateImage.png);
+	--GX-Image_BulletLine : url(../BulletLine.png);
+	--GX-Image_check : url(../check.png);
+	--GX-Image_ChineseIcon : url(../ChineseIcon.png);
+	--GX-Image_ClosePrompt : url(../ClosePrompt.png);
+	--GX-Image_DDODefault : url(../DDODefault.png);
+	--GX-Image_DDOFiltered : url(../DDOFiltered.png);
+	--GX-Image_DDOFilteredSortedASC : url(../DDOFilteredSortedASC.png);
+	--GX-Image_DDOFilteredSortedDSC : url(../DDOFilteredSortedDSC.png);
+	--GX-Image_DDOMultiselOption : url(../DDOMultiselOption.png);
+	--GX-Image_DDOMultiselSelOption : url(../DDOMultiselSelOption.png);
+	--GX-Image_DDOOptionApplyFilter : url(../DDOOptionApplyFilter.png);
+	--GX-Image_DDOOptionCleanFilters : url(../DDOOptionCleanFilters.png);
+	--GX-Image_DDOOptionFilteringData : url(../DDOOptionFilteringData.gif);
+	--GX-Image_DDOOptionSortASC : url(../DDOOptionSortASC.png);
+	--GX-Image_DDOOptionSortDSC : url(../DDOOptionSortDSC.png);
+	--GX-Image_DDOSelectedOption : url(../DDOSelectedOption.png);
+	--GX-Image_DDOSortedASC : url(../DDOSortedASC.png);
+	--GX-Image_DDOSortedDSC : url(../DDOSortedDSC.png);
+	--GX-Image_DVelopComboCollapse : url(../DVelopComboCollapse.png);
+	--GX-Image_DVelopComboExpand : url(../DVelopComboExpand.png);
+	--GX-Image_EnglishIcon : url(../EnglishIcon.png);
+	--GX-Image_ErrorIcon : url(../ErrorIcon.png);
+	--GX-Image_gear_50px : url(../gear_50px.png);
+	--GX-Image_gear_icono : url(../gear_icono.png);
+	--GX-Image_GearIcon : url(../GearIcon.png);
+	--GX-Image_Geolocation : url(../Geolocation.png);
+	--GX-Image_GermanIcon : url(../GermanIcon.png);
+	--GX-Image_HomeBannerImageSample : url(../HomeBannerImageSample.png);
+	--GX-Image_HomeModulesBackground1 : url(../HomeModulesBackground1.jpg);
+	--GX-Image_HomeModulesBackground2 : url(../HomeModulesBackground2.jpg);
+	--GX-Image_HomeModulesBackground3 : url(../HomeModulesBackground3.jpg);
+	--GX-Image_HomeModulesBackground4 : url(../HomeModulesBackground4.jpg);
+	--GX-Image_HomeModulesBackground5 : url(../HomeModulesBackground5.jpg);
+	--GX-Image_HomeModulesBackground6 : url(../HomeModulesBackground6.jpg);
+	--GX-Image_informe : url(../informe.png);
+	--GX-Image_InformesIcono : url(../InformesIcono.png);
+	--GX-Image_ItalianIcon : url(../ItalianIcon.png);
+	--GX-Image_JapaneseIcon : url(../JapaneseIcon.png);
+	--GX-Image_liquidaciones : url(../liquidaciones.png);
+	--GX-Image_liquidaciones32 : url(../liquidaciones32.png);
+	--GX-Image_LoadingResults : url(../LoadingResults.gif);
+	--GX-Image_Logo : url(../Logo.png);
+	--GX-Image_logo_header : url(../logo_header.png);
+	--GX-Image_LogoLogin : url(../LogoLogin.png);
+	--GX-Image_MoveDown : url(../MoveDown.png);
+	--GX-Image_MoveUp : url(../MoveUp.png);
+	--GX-Image_obras_sociales : url(../obras_sociales.png);
+	--GX-Image_OpcionesIcon : url(../OpcionesIcon.png);
+	--GX-Image_PanelCardGray_Expand : url(../PanelCardGray_Expand.png);
+	--GX-Image_parentesco_img : url(../parentesco_img.png);
+	--GX-Image_PhotoWithTitle_Preview : url(../PhotoWithTitle_Preview.png);
+	--GX-Image_plandesalud : url(../plandesalud.png);
+	--GX-Image_PortugueseIcon : url(../PortugueseIcon.png);
+	--GX-Image_PromptMultipleSelection : url(../PromptMultipleSelection.png);
+	--GX-Image_RequiredTriangle : url(../RequiredTriangle.gif);
+	--GX-Image_secciones : url(../secciones.png);
+	--GX-Image_SelectedItem_Preview : url(../SelectedItem_Preview.png);
+	--GX-Image_SelectedItemTag_Preview : url(../SelectedItemTag_Preview.png);
+	--GX-Image_SimpleImageList_Preview : url(../SimpleImageList_Preview.png);
+	--GX-Image_sindicatos : url(../sindicatos.png);
+	--GX-Image_SortedAsc : url(../SortedAsc.png);
+	--GX-Image_SortedDsc : url(../SortedDsc.png);
+	--GX-Image_SpanishIcon : url(../SpanishIcon.png);
+	--GX-Image_StepSelectedUnSelected : url(../StepSelectedUnSelected.png);
+	--GX-Image_StepUnSelectedSelected : url(../StepUnSelectedSelected.png);
+	--GX-Image_Timeline_Preview : url(../Timeline_Preview.png);
+	--GX-Image_user_50px : url(../user_50px.png);
+	--GX-Image_user_icono : url(../user_icono.png);
+	--GX-Image_UserIcon : url(../UserIcon.png);
+	--GX-Image_VolverIcon : url(../VolverIcon.png);
+	--GX-Image_WarningIcon : url(../WarningIcon.png);
+	--GX-Image_WizardCompleted : url(../WizardCompleted.png);
+	--GX-Image_WizardStepChecked : url(../WizardStepChecked.png);
+	--GX-Image_LoginImageColor : url(../LoginImageColor.png);
+	--GX-Image_GAMButtonGAMRemoteSmall : url(../GAMButtonGAMRemoteSmall.png);
+	--GX-Image_GAMActionMenu : url(../GAMActionMenu.png);
+	--GX-Image_Avatar : url(../Avatar.png);
+	--GX-Image_conceptos : url(../conceptos.png);
+	--GX-Image_conceptos32 : url(../conceptos32.png);
+	--GX-Image_legajos32 : url(../legajos32.png);
+	--GX-Image_legajos50 : url(../legajos50.png);
+	--GX-Image_Permission : url(../Permission.png);
+	--GX-Image_Roles : url(../Roles.png);
+	--GX-Image_userProfile_50px : url(../userProfile_50px.png);
+	--GX-Image_escuela : url(../escuela.png);
+	--GX-Image_bancos : url(../bancos.png);
+	--GX-Image_cargo_img : url(../cargo_img.png);
+	--GX-Image_convenio_img : url(../convenio_img.png);
+	--GX-Image_motivodeegreso : url(../motivodeegreso.png);
+	--GX-Image_categorias : url(../categorias.png);
+	--GX-Image_lugardepago_img : url(../lugardepago_img.png);
+	--GX-Image_Libro_sueldo_digital : url(../Libro_sueldo_digital.png);
+	--GX-Image_localidad2 : url(../localidad2.png);
+	--GX-Image_empresas : url(../empresas.png);
+	--GX-Image_empresas_100 : url(../empresas_100.png);
+	--GX-Image_novedades_img : url(../novedades_img.png);
+	--GX-Image_novedades32 : url(../novedades32.png);
+	--GX-Image_logo_horizontal : url(../logo_horizontal.jpg);
+	--GX-Image_deducciones_y_reintegros : url(../deducciones_y_reintegros.png);
+	--GX-Image_faltas_y_tardes_img : url(../faltas_y_tardes_img.png);
+	--GX-Image_formulario_1357 : url(../formulario_1357.png);
+	--GX-Image_horas_y_adicionales : url(../horas_y_adicionales.png);
+	--GX-Image_importar_legajos : url(../importar_legajos.png);
+	--GX-Image_importar_liquidaciones : url(../importar_liquidaciones.png);
+	--GX-Image_licencias_y_vacaciones : url(../licencias_y_vacaciones.png);
+	--GX-Image_obligaciones_img : url(../obligaciones_img.png);
+	--GX-Image_Logout18 : url(../Logout18.png);
+	--GX-Image_Password18 : url(../Password18.png);
+	--GX-Image_password18_2 : url(../password18_2.png);
+	--GX-Image_Empresa_icono : url(../Empresa_icono.png);
+	--GX-Image_Empresa_icono_40 : url(../Empresa_icono_40.png);
+	--GX-Image_Empresa_icono_2 : url(../Empresa_icono_2.png);
+	--GX-Image_svg_convenio : url(../svg_convenio.svg);
+	--GX-Image_WelcomeImage : url(../WelcomeImage.jpg);
+	--GX-Image_png_convenio : url(../png_convenio.png);
+	--GX-Image_LoginImage : url(../LoginImage.jpg);
+	--GX-Image_WelcomeImage_banco : url(../WelcomeImage_banco.png);
+	--GX-Image_WelcomeImage_ObraSocial : url(../WelcomeImage_ObraSocial.png);
+	--GX-Image_LoginImage2 : url(../LoginImage2.jpg);
+	--GX-Image_Group : url(../Group.png);
+	--GX-Image_Avatar2 : url(C:\Users\WIN10\Desktop\payday\svg\Avatars\1x\Avatar.png);
+	--GX-Image_svg_cog_header : url(../svg_cog_header.svg);
+	--GX-Image_svgCog : url(../svgCog.svg);
+	--GX-Image_Avatar2_b : url(../Avatar2_b.png);
+	--GX-Image_firma : url(../firma.png);
+	--GX-Image_rocketEmoji : url(../rocketEmoji.png);
+	--GX-Image_favicon_payday : url(../favicon_payday.png);
+}
+
+.GX_Image_PageFirst_Class{content: var(--GX-Image_PageFirst);}
+.GX_Image_PageLast_Class{content: var(--GX-Image_PageLast);}
+.GX_Image_PageNext_Class{content: var(--GX-Image_PageNext);}
+.GX_Image_PagePrevious_Class{content: var(--GX-Image_PagePrevious);}
+.GX_Image_VideoDownload_Class{content: var(--GX-Image_VideoDownload);}
+.GX_Image_AudioDownload_Class{content: var(--GX-Image_AudioDownload);}
+.GX_Image_ActionDisplay_Class{content: var(--GX-Image_ActionDisplay);}
+.GX_Image_ActionInsert_Class{content: var(--GX-Image_ActionInsert);}
+.GX_Image_ActionCancel_Class{content: var(--GX-Image_ActionCancel);}
+.GX_Image_GenericFilter_Class{content: var(--GX-Image_GenericFilter);}
+.GX_Image_SelectRow_Class{content: var(--GX-Image_SelectRow);}
+.GX_Image_MultimediaEdit_Class{content: var(--GX-Image_MultimediaEdit);}
+.GX_Image_MultimediaClear_Class{content: var(--GX-Image_MultimediaClear);}
+.GX_Image_PlaceHolderVideo_Class{content: var(--GX-Image_PlaceHolderVideo);}
+.GX_Image_PlaceHolderImage_Class{content: var(--GX-Image_PlaceHolderImage);}
+.GX_Image_PlaceHolderAudio_Class{content: var(--GX-Image_PlaceHolderAudio);}
+.GX_Image_ActionDelete_Class{content: var(--GX-Image_ActionDelete);}
+.GX_Image_ActionUpdate_Class{content: var(--GX-Image_ActionUpdate);}
+.GX_Image_locateMe_Class{content: var(--GX-Image_locateMe);}
+.GX_Image_calendar_Class{content: var(--GX-Image_calendar);}
+.GX_Image_PoweredByGeneXus_Class{content: var(--GX-Image_PoweredByGeneXus);}
+.GX_Image_DeleteRow_Class{content: var(--GX-Image_DeleteRow);}
+.GX_Image_UndeleteRow_Class{content: var(--GX-Image_UndeleteRow);}
+.GX_Image_SmallImageLogin_Class{content: var(--GX-Image_SmallImageLogin);}
+.GX_Image_Logo_Login_Class{content: var(--GX-Image_Logo_Login);}
+.GX_Image_NotAuthorizedImage_Class{content: var(--GX-Image_NotAuthorizedImage);}
+.GX_Image_prompt_Class{content: var(--GX-Image_prompt);}
+.GX_Image_a3l_icons8_Menu_32_Class{content: var(--GX-Image_a3l_icons8_Menu_32);}
+.GX_Image_a3l_icons8_user_32_Class{content: var(--GX-Image_a3l_icons8_user_32);}
+.GX_Image_ActionAdd_Class{content: var(--GX-Image_ActionAdd);}
+.GX_Image_ActionBack_Class{content: var(--GX-Image_ActionBack);}
+.GX_Image_ActionCleanFilters_Class{content: var(--GX-Image_ActionCleanFilters);}
+.GX_Image_ActionCopyRecord_Class{content: var(--GX-Image_ActionCopyRecord);}
+.GX_Image_ActionCSV_Class{content: var(--GX-Image_ActionCSV);}
+.GX_Image_ActionExport_Class{content: var(--GX-Image_ActionExport);}
+.GX_Image_ActionExportReport_Class{content: var(--GX-Image_ActionExportReport);}
+.GX_Image_ActionFiltersClean_Class{content: var(--GX-Image_ActionFiltersClean);}
+.GX_Image_ActionFiltersSave_Class{content: var(--GX-Image_ActionFiltersSave);}
+.GX_Image_ActionManage_Class{content: var(--GX-Image_ActionManage);}
+.GX_Image_ActionManageFilters_Class{content: var(--GX-Image_ActionManageFilters);}
+.GX_Image_ActionNewDynamicFilter_Class{content: var(--GX-Image_ActionNewDynamicFilter);}
+.GX_Image_ActionRemoveDynamicFilter_Class{content: var(--GX-Image_ActionRemoveDynamicFilter);}
+.GX_Image_ActionSave_Class{content: var(--GX-Image_ActionSave);}
+.GX_Image_AjustesIcon_Class{content: var(--GX-Image_AjustesIcon);}
+.GX_Image_ArabicIcon_Class{content: var(--GX-Image_ArabicIcon);}
+.GX_Image_AssociationItemsLeft_Class{content: var(--GX-Image_AssociationItemsLeft);}
+.GX_Image_AssociationItemsRight_Class{content: var(--GX-Image_AssociationItemsRight);}
+.GX_Image_AssociationLeft_Class{content: var(--GX-Image_AssociationLeft);}
+.GX_Image_AssociationRight_Class{content: var(--GX-Image_AssociationRight);}
+.GX_Image_AttHelpIcon_Class{content: var(--GX-Image_AttHelpIcon);}
+.GX_Image_BackgroundImage_Class{content: var(--GX-Image_BackgroundImage);}
+.GX_Image_BtnDeleteImage_Class{content: var(--GX-Image_BtnDeleteImage);}
+.GX_Image_BtnDisplayImage_Class{content: var(--GX-Image_BtnDisplayImage);}
+.GX_Image_BtnUpdateImage_Class{content: var(--GX-Image_BtnUpdateImage);}
+.GX_Image_BulletLine_Class{content: var(--GX-Image_BulletLine);}
+.GX_Image_check_Class{content: var(--GX-Image_check);}
+.GX_Image_ChineseIcon_Class{content: var(--GX-Image_ChineseIcon);}
+.GX_Image_ClosePrompt_Class{content: var(--GX-Image_ClosePrompt);}
+.GX_Image_DDODefault_Class{content: var(--GX-Image_DDODefault);}
+.GX_Image_DDOFiltered_Class{content: var(--GX-Image_DDOFiltered);}
+.GX_Image_DDOFilteredSortedASC_Class{content: var(--GX-Image_DDOFilteredSortedASC);}
+.GX_Image_DDOFilteredSortedDSC_Class{content: var(--GX-Image_DDOFilteredSortedDSC);}
+.GX_Image_DDOMultiselOption_Class{content: var(--GX-Image_DDOMultiselOption);}
+.GX_Image_DDOMultiselSelOption_Class{content: var(--GX-Image_DDOMultiselSelOption);}
+.GX_Image_DDOOptionApplyFilter_Class{content: var(--GX-Image_DDOOptionApplyFilter);}
+.GX_Image_DDOOptionCleanFilters_Class{content: var(--GX-Image_DDOOptionCleanFilters);}
+.GX_Image_DDOOptionFilteringData_Class{content: var(--GX-Image_DDOOptionFilteringData);}
+.GX_Image_DDOOptionSortASC_Class{content: var(--GX-Image_DDOOptionSortASC);}
+.GX_Image_DDOOptionSortDSC_Class{content: var(--GX-Image_DDOOptionSortDSC);}
+.GX_Image_DDOSelectedOption_Class{content: var(--GX-Image_DDOSelectedOption);}
+.GX_Image_DDOSortedASC_Class{content: var(--GX-Image_DDOSortedASC);}
+.GX_Image_DDOSortedDSC_Class{content: var(--GX-Image_DDOSortedDSC);}
+.GX_Image_DVelopComboCollapse_Class{content: var(--GX-Image_DVelopComboCollapse);}
+.GX_Image_DVelopComboExpand_Class{content: var(--GX-Image_DVelopComboExpand);}
+.GX_Image_EnglishIcon_Class{content: var(--GX-Image_EnglishIcon);}
+.GX_Image_ErrorIcon_Class{content: var(--GX-Image_ErrorIcon);}
+.GX_Image_gear_50px_Class{content: var(--GX-Image_gear_50px);}
+.GX_Image_gear_icono_Class{content: var(--GX-Image_gear_icono);}
+.GX_Image_GearIcon_Class{content: var(--GX-Image_GearIcon);}
+.GX_Image_Geolocation_Class{content: var(--GX-Image_Geolocation);}
+.GX_Image_GermanIcon_Class{content: var(--GX-Image_GermanIcon);}
+.GX_Image_HomeBannerImageSample_Class{content: var(--GX-Image_HomeBannerImageSample);}
+.GX_Image_HomeModulesBackground1_Class{content: var(--GX-Image_HomeModulesBackground1);}
+.GX_Image_HomeModulesBackground2_Class{content: var(--GX-Image_HomeModulesBackground2);}
+.GX_Image_HomeModulesBackground3_Class{content: var(--GX-Image_HomeModulesBackground3);}
+.GX_Image_HomeModulesBackground4_Class{content: var(--GX-Image_HomeModulesBackground4);}
+.GX_Image_HomeModulesBackground5_Class{content: var(--GX-Image_HomeModulesBackground5);}
+.GX_Image_HomeModulesBackground6_Class{content: var(--GX-Image_HomeModulesBackground6);}
+.GX_Image_informe_Class{content: var(--GX-Image_informe);}
+.GX_Image_InformesIcono_Class{content: var(--GX-Image_InformesIcono);}
+.GX_Image_ItalianIcon_Class{content: var(--GX-Image_ItalianIcon);}
+.GX_Image_JapaneseIcon_Class{content: var(--GX-Image_JapaneseIcon);}
+.GX_Image_liquidaciones_Class{content: var(--GX-Image_liquidaciones);}
+.GX_Image_liquidaciones32_Class{content: var(--GX-Image_liquidaciones32);}
+.GX_Image_LoadingResults_Class{content: var(--GX-Image_LoadingResults);}
+.GX_Image_Logo_Class{content: var(--GX-Image_Logo);}
+.GX_Image_logo_header_Class{content: var(--GX-Image_logo_header);}
+.GX_Image_LogoLogin_Class{content: var(--GX-Image_LogoLogin);}
+.GX_Image_MoveDown_Class{content: var(--GX-Image_MoveDown);}
+.GX_Image_MoveUp_Class{content: var(--GX-Image_MoveUp);}
+.GX_Image_obras_sociales_Class{content: var(--GX-Image_obras_sociales);}
+.GX_Image_OpcionesIcon_Class{content: var(--GX-Image_OpcionesIcon);}
+.GX_Image_PanelCardGray_Expand_Class{content: var(--GX-Image_PanelCardGray_Expand);}
+.GX_Image_parentesco_img_Class{content: var(--GX-Image_parentesco_img);}
+.GX_Image_PhotoWithTitle_Preview_Class{content: var(--GX-Image_PhotoWithTitle_Preview);}
+.GX_Image_plandesalud_Class{content: var(--GX-Image_plandesalud);}
+.GX_Image_PortugueseIcon_Class{content: var(--GX-Image_PortugueseIcon);}
+.GX_Image_PromptMultipleSelection_Class{content: var(--GX-Image_PromptMultipleSelection);}
+.GX_Image_RequiredTriangle_Class{content: var(--GX-Image_RequiredTriangle);}
+.GX_Image_secciones_Class{content: var(--GX-Image_secciones);}
+.GX_Image_SelectedItem_Preview_Class{content: var(--GX-Image_SelectedItem_Preview);}
+.GX_Image_SelectedItemTag_Preview_Class{content: var(--GX-Image_SelectedItemTag_Preview);}
+.GX_Image_SimpleImageList_Preview_Class{content: var(--GX-Image_SimpleImageList_Preview);}
+.GX_Image_sindicatos_Class{content: var(--GX-Image_sindicatos);}
+.GX_Image_SortedAsc_Class{content: var(--GX-Image_SortedAsc);}
+.GX_Image_SortedDsc_Class{content: var(--GX-Image_SortedDsc);}
+.GX_Image_SpanishIcon_Class{content: var(--GX-Image_SpanishIcon);}
+.GX_Image_StepSelectedUnSelected_Class{content: var(--GX-Image_StepSelectedUnSelected);}
+.GX_Image_StepUnSelectedSelected_Class{content: var(--GX-Image_StepUnSelectedSelected);}
+.GX_Image_Timeline_Preview_Class{content: var(--GX-Image_Timeline_Preview);}
+.GX_Image_user_50px_Class{content: var(--GX-Image_user_50px);}
+.GX_Image_user_icono_Class{content: var(--GX-Image_user_icono);}
+.GX_Image_UserIcon_Class{content: var(--GX-Image_UserIcon);}
+.GX_Image_VolverIcon_Class{content: var(--GX-Image_VolverIcon);}
+.GX_Image_WarningIcon_Class{content: var(--GX-Image_WarningIcon);}
+.GX_Image_WizardCompleted_Class{content: var(--GX-Image_WizardCompleted);}
+.GX_Image_WizardStepChecked_Class{content: var(--GX-Image_WizardStepChecked);}
+.GX_Image_LoginImageColor_Class{content: var(--GX-Image_LoginImageColor);}
+.GX_Image_GAMButtonGAMRemoteSmall_Class{content: var(--GX-Image_GAMButtonGAMRemoteSmall);}
+.GX_Image_GAMActionMenu_Class{content: var(--GX-Image_GAMActionMenu);}
+.GX_Image_Avatar_Class{content: var(--GX-Image_Avatar);}
+.GX_Image_conceptos_Class{content: var(--GX-Image_conceptos);}
+.GX_Image_conceptos32_Class{content: var(--GX-Image_conceptos32);}
+.GX_Image_legajos32_Class{content: var(--GX-Image_legajos32);}
+.GX_Image_legajos50_Class{content: var(--GX-Image_legajos50);}
+.GX_Image_Permission_Class{content: var(--GX-Image_Permission);}
+.GX_Image_Roles_Class{content: var(--GX-Image_Roles);}
+.GX_Image_userProfile_50px_Class{content: var(--GX-Image_userProfile_50px);}
+.GX_Image_escuela_Class{content: var(--GX-Image_escuela);}
+.GX_Image_bancos_Class{content: var(--GX-Image_bancos);}
+.GX_Image_cargo_img_Class{content: var(--GX-Image_cargo_img);}
+.GX_Image_convenio_img_Class{content: var(--GX-Image_convenio_img);}
+.GX_Image_motivodeegreso_Class{content: var(--GX-Image_motivodeegreso);}
+.GX_Image_categorias_Class{content: var(--GX-Image_categorias);}
+.GX_Image_lugardepago_img_Class{content: var(--GX-Image_lugardepago_img);}
+.GX_Image_Libro_sueldo_digital_Class{content: var(--GX-Image_Libro_sueldo_digital);}
+.GX_Image_localidad2_Class{content: var(--GX-Image_localidad2);}
+.GX_Image_empresas_Class{content: var(--GX-Image_empresas);}
+.GX_Image_empresas_100_Class{content: var(--GX-Image_empresas_100);}
+.GX_Image_novedades_img_Class{content: var(--GX-Image_novedades_img);}
+.GX_Image_novedades32_Class{content: var(--GX-Image_novedades32);}
+.GX_Image_logo_horizontal_Class{content: var(--GX-Image_logo_horizontal);}
+.GX_Image_deducciones_y_reintegros_Class{content: var(--GX-Image_deducciones_y_reintegros);}
+.GX_Image_faltas_y_tardes_img_Class{content: var(--GX-Image_faltas_y_tardes_img);}
+.GX_Image_formulario_1357_Class{content: var(--GX-Image_formulario_1357);}
+.GX_Image_horas_y_adicionales_Class{content: var(--GX-Image_horas_y_adicionales);}
+.GX_Image_importar_legajos_Class{content: var(--GX-Image_importar_legajos);}
+.GX_Image_importar_liquidaciones_Class{content: var(--GX-Image_importar_liquidaciones);}
+.GX_Image_licencias_y_vacaciones_Class{content: var(--GX-Image_licencias_y_vacaciones);}
+.GX_Image_obligaciones_img_Class{content: var(--GX-Image_obligaciones_img);}
+.GX_Image_Logout18_Class{content: var(--GX-Image_Logout18);}
+.GX_Image_Password18_Class{content: var(--GX-Image_Password18);}
+.GX_Image_password18_2_Class{content: var(--GX-Image_password18_2);}
+.GX_Image_Empresa_icono_Class{content: var(--GX-Image_Empresa_icono);}
+.GX_Image_Empresa_icono_40_Class{content: var(--GX-Image_Empresa_icono_40);}
+.GX_Image_Empresa_icono_2_Class{content: var(--GX-Image_Empresa_icono_2);}
+.GX_Image_svg_convenio_Class{content: var(--GX-Image_svg_convenio);}
+.GX_Image_WelcomeImage_Class{content: var(--GX-Image_WelcomeImage);}
+.GX_Image_png_convenio_Class{content: var(--GX-Image_png_convenio);}
+.GX_Image_LoginImage_Class{content: var(--GX-Image_LoginImage);}
+.GX_Image_WelcomeImage_banco_Class{content: var(--GX-Image_WelcomeImage_banco);}
+.GX_Image_WelcomeImage_ObraSocial_Class{content: var(--GX-Image_WelcomeImage_ObraSocial);}
+.GX_Image_LoginImage2_Class{content: var(--GX-Image_LoginImage2);}
+.GX_Image_Group_Class{content: var(--GX-Image_Group);}
+.GX_Image_Avatar2_Class{content: var(--GX-Image_Avatar2);}
+.GX_Image_svg_cog_header_Class{content: var(--GX-Image_svg_cog_header);}
+.GX_Image_svgCog_Class{content: var(--GX-Image_svgCog);}
+.GX_Image_Avatar2_b_Class{content: var(--GX-Image_Avatar2_b);}
+.GX_Image_firma_Class{content: var(--GX-Image_firma);}
+.GX_Image_rocketEmoji_Class{content: var(--GX-Image_rocketEmoji);}
+.GX_Image_favicon_payday_Class{content: var(--GX-Image_favicon_payday);}

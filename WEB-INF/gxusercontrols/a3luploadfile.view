@@ -1,0 +1,16 @@
+<input  type="button" value="{{gxTpr_caption}}{{caption}}"  class="{{gxTpr_class}}{{class}}" id="{{gxTpr_id_btn}}{{id_btn}}" {{gxTpr_multiple}}{{multiple}}/>
+
+<script>
+	gx.fx.obs.addObserver("gx.onload", window, A3LUploadFile)
+	function A3LUploadFile() {
+		document.getElementById("{{gxTpr_idNombreArchivo}}{{idNombreArchivo}}").innerHTML = "";
+		$("#{{gxTpr_id_file}}{{id_file}}").hide();
+		$("#{{gxTpr_id_btn}}{{id_btn}}").click(function() {
+			$("#{{gxTpr_id_file}}{{id_file}}").show().click().hide();
+		});
+		$("#{{gxTpr_id_file}}{{id_file}}").change(function() {
+			document.getElementById("{{gxTpr_idNombreArchivo}}{{idNombreArchivo}}").innerHTML = document.getElementById("{{gxTpr_id_file}}{{id_file}}").value.replace("C:\\fakepath\\", "");
+		})
+	}
+
+</script>

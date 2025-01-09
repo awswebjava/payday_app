@@ -1,0 +1,41 @@
+ <input type="button"  class="{{gxTpr_buttonClass}}{{buttonClass}}" value="{{gxTpr_button_caption}}{{button_caption}}" id="{{gxTpr_buttonId}}{{buttonId}}" style="display:none"/> 
+
+<img class="{{gxTpr_class_img}}{{class_img}}" id="{{gxTpr_id_img}}{{id_img}}" src="{{gxTpr_src_default}}{{src_default}}" >
+
+<script>
+console.log('uploader!!');
+gx.fx.obs.addObserver("{{gxTpr_observer}}{{observer}}", window, setA3LUploader{{gxTpr_buttonId}}{{buttonId}});
+
+
+function setA3LUploader{{gxTpr_buttonId}}{{buttonId}}() {
+
+    var browse = document.getElementById("{{gxTpr_buttonId}}{{buttonId}}");
+
+    if ("{{gxTpr_mode}}{{mode}}" === "INS" || "{{gxTpr_mode}}{{mode}}" === "UPD") {
+        document.getElementById("{{gxTpr_buttonId}}{{buttonId}}").style.display = 'block';
+    }
+
+    /*if (gx.dom.byId("{{{gxTpr_photo_dir_id}}}{{{photo_dir_id}}}")["value"] === '') {*/
+    if (gx.dom.byId("{{{gxTpr_photo_name_id}}}{{{photo_name_id}}}")["value"] === '') {
+        document.getElementById('{{gxTpr_id_img}}{{id_img}}').style.display = 'none';
+    } 
+
+   console.log('setA3LUploader{{gxTpr_buttonId}}{{buttonId}} ....input {{gxTpr_inputfileId}}{{inputfileId}}');
+    var selectDialog = document.getElementById("{{gxTpr_inputfileId}}{{inputfileId}}");
+    selectDialog.style.display = "none";
+
+    browse.addEventListener("click", function () {
+        console.log('browse click');
+        selectDialog.click();
+    });
+
+    selectDialog.addEventListener("change", function () {
+        document.getElementById('{{gxTpr_id_img}}{{id_img}}').src = URL.createObjectURL(selectDialog.files[0]);        
+        document.getElementById('{{gxTpr_id_img}}{{id_img}}').style.display = 'block';
+	   gx.dom.byId("{{{gxTpr_photo_name_id}}}{{{photo_name_id}}}")["value"] = selectDialog.files[0].name;
+    });
+
+   
+}
+
+</script>

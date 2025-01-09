@@ -1,0 +1,57 @@
+<!--<input id="id_input_file" style="DISPLAY: none" type="file" multiple="multiple">-->
+<img class="{{gxTpr_class_img}}{{class_img}}" id="{{gxTpr_id_img}}{{id_img}}" src="{{gxTpr_src_default}}{{src_default}}">
+<input  type="button" value="{{gxTpr_caption}}{{caption}}"  class="{{gxTpr_class}}{{class}}" id="{{gxTpr_id_btn}}{{id_btn}}" onClick="triggerFileClick()" />
+
+
+
+<script>
+console.log('foto UC');
+
+/*gx.fx.obs.addObserver("gx.onload", window, setUploadBtn);*/
+gx.fx.obs.addObserver("{{gxTpr_observer}}{{observer}}", window, setUploadBtn);
+
+function triggerFileClick(){
+	
+	console.log('trigger! ');
+	
+	/*
+	$('#{{gxTpr_id_fileinput}}{{id_fileinput}}').show().click().hide();
+	*/
+	
+	console.log('trigger clicko');
+	
+}
+
+function setUploadBtn(){
+	
+	console.log('setUploadBtn 1 src_default {{gxTpr_src_default}}{{src_default}}');
+	
+	
+	$("#{{gxTpr_id_fileinput}}{{id_fileinput}}").hide();
+	$("#Object_{{gxTpr_id_fileinput}}{{id_fileinput}}").hide();
+	
+
+	console.log('a setUploadBtn 2 {{gxTpr_id_fileinput}}{{id_fileinput}}');
+	
+	inputFile = document.getElementById('{{gxTpr_id_fileinput}}{{id_fileinput}}');
+	/*console.log('setUploadBtn 3 ' + inputFile); */
+	if(inputFile){
+		inputFile.onchange = evt => {
+			console.log('change');
+			const [file] = inputFile.files;
+			/*console.log(' ' + file);*/
+			if (file) {
+				
+				
+				/*console.log('{{gxTpr_id_img}}{{id_img}}');*/
+				document.getElementById('{{gxTpr_id_img}}{{id_img}}').src = URL.createObjectURL(file);
+				gx.dom.byId("{{{gxTpr_imageURI_id}}}{{{imageURI_id}}}")["value"] = document.getElementById('{{gxTpr_id_img}}{{id_img}}').src;
+				console.log('voila!');
+			}
+		}
+	}
+	console.log('fin');
+	
+}
+
+</script>

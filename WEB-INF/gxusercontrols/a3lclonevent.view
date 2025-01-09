@@ -1,0 +1,9 @@
+<script>
+	gx.fx.obs.addObserver("{{gxTpr_observer}}{{observer}}", window, setClon{{gxTpr_boton_clon_id}}{{boton_clon_id}});
+	
+	function setClon{{gxTpr_boton_clon_id}}{{boton_clon_id}}() {
+		document.getElementById('{{gxTpr_boton_clon_id}}{{boton_clon_id}}').addEventListener('click', function() {
+			document.getElementById('{{gxTpr_boton_orig_id}}{{boton_orig_id}}').click();
+		});
+	}
+</script>

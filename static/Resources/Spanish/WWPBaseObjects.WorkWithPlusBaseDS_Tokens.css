@@ -1,0 +1,127 @@
+:root
+{
+	--colors_HeaderForecolor : White;
+	--colors_PDF : #ea4c3a;
+	--colors_ExcelColor : #08743b;
+	--colors_Danger : #f56a67;
+	--colors_Danger_CondForm : #dd4b39;
+	--colors_Danger_CondForm_Row_Background : #f2dede;
+	--colors_Danger_CondForm_Action : #e5cccc;
+	--colors_Danger_CondForm_Action_Hover : rgba(245,106,103,0.5);
+	--colors_Warning : #f39c12;
+	--colors_Warning_CondForm : #fb6e52;
+	--colors_Warning_CondForm_Row_Background : #faf2cc;
+	--colors_Warning_CondForm_Action : #fed6be;
+	--colors_Warning_CondForm_Action_Hover : rgba(251,110,82,0.5);
+	--colors_Success_CondForm : #00a65a;
+	--colors_Success_CondForm_Row_Background : #dff0d8;
+	--colors_Success_CondForm_Action : #b9ccb7;
+	--colors_Success_CondForm_Action_Hover : rgba(0,166,90,0.5);
+	--colors_Info_CondForm : #3c8dbc;
+	--colors_Info_CondForm_Row_Background : #e0f1ff;
+	--colors_Info_CondForm_Action : #bcdcf5;
+	--colors_Info_CondForm_Action_Hover : rgba(60,141,188,0.5);
+	--colors_InfoLight : #00c0ef;
+	--fonts_primary-regular : Montserrat,sans-serif;
+	--fontSizes_font-icon-xxs : 10px;
+	--fontSizes_font-icon-xs : 12px;
+	--fontSizes_font-icon-s : 16px;
+	--fontSizes_font-icon-m : 19px;
+	--fontSizes_font-icon-l : 24px;
+	--fontSizes_font-icon-xl : 36px;
+	--borders_xs : 1px;
+	--borders_s : 2px;
+	--radius_s : 2px;
+	--radius_m : 4px;
+	--radius_l : 6px;
+
+}
+
+[gx-data-base-color="Custom"]
+{
+	--colors_BaseColor : #4F46E5;
+	--colors_BaseColorForecolor : #4F46E5;
+	--colors_ActionBorder_and_FocusColor : #362DCC;
+	--colors_ActionHover : #453CDB;
+	--colors_ActionHoverBorder : #3B32D1;
+	--colors_BaseColorShadow : rgba(79, 70, 229, 0.7);
+	--colors_BaseForecolor80 : rgba(255,255,255,0.8);
+	--colors_BaseColor30 : rgba(79, 70, 229, 0.3);
+	--colors_BaseForecolor : white;
+	--colors_BackgroundColor : #FFFFFF;
+
+}
+
+[gx-data-background-color="Dark"]
+{
+	--colors_BaseColorForecolor : white;
+	--colors_gray01 : #202c31;
+	--colors_gray02 : #222E34;
+	--colors_gray03 : #2e393f;
+	--colors_gray04 : #383f48;
+	--colors_gray05 : #3e4e56;
+	--colors_gray06 : #5D6F78;
+	--colors_gray07 : #99abb4;
+	--colors_gray08 : #D9DFE2;
+	--colors_BackgroundColor : #383f48;
+	--colors_DataBackgroundColor : #263238;
+	--colors_GridForecolor : #99abb4;
+	--colors_GridActionIconColor : #99abb4;
+	--colors_GridTitleColor : White;
+	--colors_HeaderForecolor : #99ABB4;
+	--colors_HorizontalMenu_SubmenuForecolor : #99abb4;
+	--colors_HorizontalBackgroundColor_Forecolor : White;
+
+}
+
+[gx-data-background-color="Light"]
+{
+	--colors_gray01 : #fbfbfb;
+	--colors_gray02 : #f7f7f7;
+	--colors_gray03 : #f5f4f4;
+	--colors_gray04 : #eee;
+	--colors_gray05 : #d9d9d9;
+	--colors_gray06 : #c8c8c8;
+	--colors_gray07 : #8c8d8e;
+	--colors_gray08 : #575b5d;
+	--colors_DataBackgroundColor : #fff;
+	--colors_GridForecolor : #000;
+	--colors_GridActionIconColor : #fff;
+	--colors_HorizontalMenu_SubmenuForecolor : #575B5D;
+	--colors_GridTitleColor : #3B32D1;
+	--colors_HorizontalBackgroundColor_Forecolor : #727272;
+
+}
+
+[gx-data-font-size="Small"]
+{
+	--fontSizes_xs : 9.9px;
+	--fontSizes_s : 12.6px;
+	--fontSizes_m : 16.2px;
+	--fontSizes_l : 19.8px;
+	--fontSizes_xl : 25.2px;
+	--fontSizes_xxl : 31.6px;
+
+}
+
+[gx-data-font-size="Medium"]
+{
+	--fontSizes_xs : 11px;
+	--fontSizes_s : 14px;
+	--fontSizes_m : 18px;
+	--fontSizes_l : 22px;
+	--fontSizes_xl : 28px;
+	--fontSizes_xxl : 34px;
+
+}
+
+[gx-data-font-size="Large"]
+{
+	--fontSizes_xs : 12.1px;
+	--fontSizes_s : 15.4px;
+	--fontSizes_m : 19.8px;
+	--fontSizes_l : 24.2px;
+	--fontSizes_xl : 30.8px;
+	--fontSizes_xxl : 37.4px;
+
+}

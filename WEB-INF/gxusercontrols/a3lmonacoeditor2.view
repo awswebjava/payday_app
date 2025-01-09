@@ -1,0 +1,663 @@
+
+<div id="{{gxTpr_monaco_editor_id}}{{monaco_editor_id}}" class="MonacoEditor">
+
+<script>
+
+(function() {
+	var editorFormula;
+	var loaderScriptLoaded = false;
+	
+    /* Cargar el AMD loader necesario para el Monaco Editor */
+    function loadMonacoLoader(callback) {
+	    console.log("loaderScriptLoaded " + loaderScriptLoaded);
+        if (!loaderScriptLoaded) {
+            var loaderScript = document.createElement('script');
+            loaderScript.src = 'vs/loader.js';
+            loaderScript.onload = function() {
+                loaderScriptLoaded = true;
+                callback();
+            };
+            document.body.appendChild(loaderScript);
+        } else {
+            callback();
+        }
+    }
+
+	function iniMonacoEditor(crear, url_sug_QS){
+
+			console.log("setmonacoeditor 3");	
+			if(crear === true){
+				monaco.editor.getModels().forEach(model => model.dispose());
+			}
+			
+			monaco.languages.register({id: '{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}' });
+			config = {{{gxTpr_monaco_brackets}}}{{{monaco_brackets}}};
+			monaco.languages.setLanguageConfiguration("{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}", config);	   
+			monaco.languages.setMonarchTokensProvider('{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}', {
+			tokenizer: {root: [{{{gxTpr_monaco_tokens}}}{{{monaco_tokens}}}]}});       
+			monaco.editor.defineTheme('monacoTemplate', {
+				base: 'vs',
+				inherit: false,
+				rules: [{{{gxTpr_monaco_tokens_style}}}{{{monaco_tokens_style}}}],
+				colors: {'editor.foreground': '{{{gxTpr_monaco_foreground}}}{{{monaco_foreground}}}'}
+			});			
+
+			if(typeof this.completionItemProvider != "undefined"){
+				this.completionItemProvider.dispose();			
+				this.hoverProvider.dispose();
+			}
+				/*else{*/
+			
+			fetch('{{{gxTpr_monaco_url_sug}}}{{{monaco_url_sug}}}' + url_sug_QS, {	
+			}).then(response => {			
+				return response.json();
+			}).then(objSug => {			
+				var element = document.getElementById('{{gxTpr_monaco_editor_id}}{{monaco_editor_id}}');
+				var columnaHasta = 0;
+				var columnaDesde = 0;
+				var suggestionsArray = new Array();
+				var item = {};
+				var hoverMap = new Map([[]]);	
+				
+				var fetchedSug = objSug;
+				
+				
+				
+				/*lo paso aca. Si lo paso acá, funciona siempre el hover, pero funciona el suggest la primera vez solamente*/
+				suggestionsArray = new Array();
+				hoverMap = new Map([[]]);
+				var obj;
+				for (var i = 0; i < fetchedSug.length; i++){
+					obj = fetchedSug[i];	
+					/*hoverMap.set(obj.insertText.toUpperCase(), obj.hover_value); cambio por label*/
+					hoverMap.set(obj.label2.toUpperCase(), obj.hover_value);
+					
+				}			
+				/*fin*/		
+				
+				this.completionItemProvider = monaco.languages.registerCompletionItemProvider('{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}', {
+		
+					provideCompletionItems: (model, position) => {	
+						console.log(" funcion provideCompletionItems position.lineNumber " + position.lineNumber + " position.column " + position.column);
+						contexto = getOperando(model,position.lineNumber, position.column, 'palabra', 0);
+						console.log("contexto de getOperando " + contexto)
+						/* nomas
+						if(!contexto || contexto === '' || contexto === 'Error'){
+							contexto = itemContent;						
+						}
+						*/
+						console.log(" funcion provideCompletionItems... contexto " + contexto);
+						/*estaba aca. Si lo dejo acá, funciona siempre el suggest, pero el hover solo funciona si primero hago un suggest*/
+						suggestionsArray = new Array(); /*ojo que descomento esta linea que es problematica como lo explica el renglon anterior*/
+						suggestionsParametrosArray = new Array();
+						item = {};
+						
+						tieneParametros = false;
+						existeContexto = false;
+						for (var i = 0; i < fetchedSug.length; i++){
+							obj = fetchedSug[i];
+							/*console.log('obj ' + JSON.stringify(obj));*/
+							
+							if( '{' + obj.label.label.toUpperCase() + '}' === contexto){
+								existeContexto = true;
+							}
+							if(obj.parametros && obj.parametros.length > 0){
+								/*console.log('encuentra parametros en ' + obj.label.label + ' obj.label.label.toUpperCase() ' + obj.label.label.toUpperCase() + ' contexto ' + contexto);*/
+								if( '{' + obj.label.label.toUpperCase() + '}' === contexto){
+									tieneParametros = true;
+									console.log('entra ' + obj.parametros.length);
+									for(p = 0; p < obj.parametros.length;p++){
+										console.log('p ' + p);
+										objParm = obj.parametros[p];
+										/*console.log('objParm ' + JSON.stringify(objParm) );*/
+										item = {};
+										item.sortText = objParm.sortText;
+										item.kind = objParm.kind;
+										/*item.label = ' ' + objParm.label + ' ';*/
+										item.label = objParm.label;
+										item.insertText = objParm.insertText;
+										item.insertTextRules = objParm.insertTextRules;
+										/*item.detail = objParm.detail;*/
+										item.documentation = objParm.documentation;
+										suggestionsParametrosArray.push(item);
+									}
+									break;
+								}
+							}
+							if(suggestionsParametrosArray.length === 0){
+								
+								item = {};
+								item.sortText = obj.sortText;
+								item.kind = obj.kind;
+								item.label = obj.label;
+								item.insertText = obj.insertText;
+								item.insertTextRules = obj.insertTextRules;
+								/*item.detail = obj.detail;*/
+								item.documentation = obj.documentation;
+								if(obj.parametros && obj.parametros.length > 0){
+									item.command = {
+										id: 'editor.action.triggerSuggest',
+										title: '123'
+									};		
+								}
+								/*console.log("item ---> " + JSON.stringify(item));*/
+								suggestionsArray.push(item);
+							}
+						
+						}	
+						
+						/*fin*/
+						console.log("devuelve " + suggestionsArray.length + " sugerencias y tantas sugsparm: " + suggestionsParametrosArray.length + " tieneParametros " + tieneParametros );
+						/*console.log(JSON.stringify(suggestionsArray));*/
+						if(suggestionsParametrosArray.length > 0){
+							console.log("devuelve PARAMETROS " + JSON.stringify(suggestionsParametrosArray));
+							return {
+								suggestions: suggestionsParametrosArray
+							};			
+						}
+						else{
+							if(tieneParametros === false && existeContexto === true){
+								return {suggestions:[]};
+							}
+							else{
+								return {
+									suggestions: suggestionsArray
+								};
+							}
+						}
+						
+					},
+					triggerCharacters: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+				}
+				);
+				
+				this.hoverProvider = monaco.languages.registerHoverProvider('{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}', {
+					provideHover: function(model, position) {					
+						
+						if (model.getWordAtPosition(position)) {							
+							/*itemContent = ''; nomas*/
+							hoverValue = getOperando(model,position.lineNumber, position.column, 'sugerencia', 0);
+							
+						
+							return {
+								range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+								contents: [{
+									value: hoverValue
+								}]
+							};
+						}
+					}
+				});			
+				
+				
+				
+				if(crear === true){
+				
+					editorFormula = monaco.editor.create(document.getElementById('{{gxTpr_monaco_editor_id}}{{monaco_editor_id}}'), {
+						value: '{{{gxTpr_valorInicial}}}{{{valorInicial}}}',
+						language: '{{{gxTpr_nombreLenguaje}}}{{{nombreLenguaje}}}',
+						suggest: {
+							snippetsPreventQuickSuggestions: false
+						},
+						lineNumbers: '{{{gxTpr_monaco_lineNumbers}}}{{{monaco_lineNumbers}}}',
+						wordWrap: '{{{gxTpr_monaco_wordWrap}}}{{{monaco_wordWrap}}}',
+						wordWrapColumn: {{{gxTpr_monaco_Columns}}}{{{monaco_Columns}}},
+						theme: 'monacoTemplate',
+						readonly: {{{gxTpr_monaco_readOnly}}}{{{monaco_readOnly}}},
+						minimap: {
+							enabled: {{{gxTpr_monaco_miniMap}}}{{{monaco_miniMap}}}
+						},
+						wordBasedSuggestions: false,
+						tabCompletion: 'onlySnippets',
+						selectionHighlight: true
+					});
+				}
+				/*codigo markers*/
+				var model=monaco.editor.getModels()[0];				
+			
+				validar(model, 'INI', 1, 1);
+			
+				model.onDidChangeContent((e) => {					
+					ActualizarVariable();
+				
+					validar(model, 'CHANGE', 1, 1);
+				});
+						
+				/*setTimeout(function(){
+					element.addEventListener('DOMSubtreeModified', ActualizarVariable);
+					
+				}, 2000);		
+				*/
+				function ActualizarVariable(e) {
+					gx.dom.byId("{{{gxTpr_variable_asociada}}}{{{variable_asociada}}}")["value"] = editorFormula.getValue();
+				}
+				function validar(model, evento, eLine, eColumn){
+					/*esto dispara la carga de las sugerencias? No*/
+					
+					const markers = [];
+					
+					if(evento === 'INI'){
+						totalLineas = model.getLineCount();
+					}
+					else{
+						totalLineas = eLine;
+					}				
+					
+					for (let i = eLine; i < totalLineas + 1; i++) { /*línea por línea*/
+						
+						const range = {
+							startLineNumber: i,
+							startColumn: 1,
+							endLineNumber: i,
+							endColumn: model.getLineLength(i) + 1
+						};
+						
+						console.log("validar 1 eColumn " + eColumn);
+						for (let e = eColumn; e < model.getLineLength(i) + 1; e++) { /*caracter por caracer adentro de la línea*/
+						
+								console.log("validar 2 i " + i + " e " + e + " columnaHasta " + columnaHasta + " columnaDesde " + columnaDesde + "  model.getLineLength(i) " +  model.getLineLength(i) );
+								columnaHasta = 0;
+								chunk = getOperando(model, i, e, 'sugerencia', model.getLineLength(i)); /*llama a funcion que extrae palabra en esa columna*/
+								errorDesde = columnaDesde;
+								console.log("validar 2 chunk " + chunk + ' i ' + i + " e " + e + " columnaHasta " + columnaHasta + " columnaDesde " + columnaDesde + ' errorDesde ' + errorDesde);
+								if( chunk === 'Error' && e != columnaHasta){
+									console.log("push!");
+									markers.push({										
+										message: 'Item no reconocido i ' + i + ' e ' + e + ' columnaHasta ' + columnaHasta,
+										severity: monaco.MarkerSeverity.Error,
+										
+										startLineNumber: i,
+										
+										/*startColumn: e,*/
+										startColumn: errorDesde,
+										endLineNumber: i,
+										/*endColumn: range.endColumn*/
+										endColumn: columnaHasta
+									});
+								}
+							/*
+								else{
+									if(evento !== 'INI' && evento !== 'CHANGE){
+										console.log('chau por ' + evento);
+										break;
+									}									
+								}*/
+							
+								e = columnaHasta + 1;
+								
+								console.log('chunk ' + chunk + ' columna hasta ' + columnaHasta + 'e ' + e + ' ' + ' length ' + model.getLineLength(i) );
+
+							}
+					}
+					monaco.editor.setModelMarkers(model, 'owner', markers);
+					/*end markers*/
+				}
+				
+				function getOperando(model,nroLin,columna, devolver, finLinea ){
+						
+						columnaDesde = columna;
+						
+						pos_ant = new Object();					
+						pos_ant.lineNumber = nroLin;
+						pos_ant.column = columnaDesde;
+						console.log('ini ' + model.getWordAtPosition(pos_ant) + " columnaDesde " + columnaDesde + " devolver " + devolver)  ;
+						finInicial = 0;
+						if(model.getWordAtPosition(pos_ant)){
+							console.log("iniii " + model.getWordAtPosition(pos_ant).word);
+							finInicial = model.getWordAtPosition(pos_ant).endColumn;
+						}
+						auxCol = columnaDesde - 1;
+						if(auxCol > 0){
+							letra = model.getValueInRange({startLineNumber:nroLin,startColumn:auxCol,endLineNumber:nroLin,endColumn:auxCol + 1});
+						}
+						else{
+							letra = '';
+						}
+							
+						console.log("leeetra " + letra + " columnaDesde " + columnaDesde + " auxCol " + auxCol + " finInicial " + finInicial);
+						/*while (columnaDesde >= 1 && (model.getWordAtPosition(pos_ant) || letra === ' ')) {*/ /*Resta posicion hasta que encuentra una letra distinta  a ' '*/
+						
+						if(!model.getWordAtPosition(pos_ant)){
+							columnaDesde--;
+							pos_ant.lineNumber = nroLin;
+							pos_ant.column = columnaDesde;							
+							console.log("restaaa columnadesde (" + model.getWordAtPosition(pos_ant) + ")");							
+							
+						}
+						columnaHasta = columna;
+						console.log("letra " + letra + " auxCol " + auxCol + " columnaDesde " + columnaDesde + " columnaHasta " + columnaHasta);
+						
+						loop = 1;
+						
+						/*while (auxCol >= 1 && ( letra === ' ')) { */
+						encontroUnAbre = false;
+						if(letra === '{' || letra === '['){
+							columnaDesde--;
+						}
+						hayAlgunaPalabra = false;
+						while (auxCol >= 1 && letra !== '{' && letra !== '[' && letra !== '}' && letra !== ']' ) { 
+
+							columnaDesde--; /*Con esto voy a lograr que reconozca la palabra del calculo por ejemplo {retroactivo ...}*/
+											
+							letra = model.getValueInRange({startLineNumber:nroLin,startColumn:auxCol,endLineNumber:nroLin,endColumn:auxCol + 1});							
+							if(letra === '[' || letra === '{'){
+								encontroUnAbre = true;
+							}
+							else{
+								if(letra !== '}' && letra !== ']'){
+									if(hayAlgunaPalabra === false){
+										if( model.getWordAtPosition({lineNumber:nroLin,column:auxCol})){
+											const number = Number(model.getWordAtPosition({lineNumber:nroLin,column:auxCol}).word);
+											if(Number.isNaN(number)) {
+												console.log('hay esta palabra ' + model.getWordAtPosition({lineNumber:nroLin,column:auxCol}).word);
+												hayAlgunaPalabra = true;											
+											}				
+											else{
+												console.log('es numero: ' + model.getWordAtPosition({lineNumber:nroLin,column:auxCol}).word);
+											}
+											
+										}
+									}
+								}
+							}
+						
+						
+							auxCol--;
+							console.log("letrita " + letra + " auxCol " + auxCol);
+							loop++;
+							if(loop === 1000){
+								console.log('LOOP 1');
+								break;
+							}
+						}
+						if(letra === '}' || letra === ']'){
+							
+							columnaHasta++;
+							console.log('encontró cierre, se vaaaa con error encontroUnAbre ' + encontroUnAbre + ' hayAlgunaPalabra ' + hayAlgunaPalabra);
+							if(encontroUnAbre === false && hayAlgunaPalabra === true){
+								return "Error";
+							}
+							else{
+								return '';
+							}
+						}						
+						/*
+						pos_ant.column = columnaDesde;	
+						console.log("a verrr " + model.getWordAtPosition(pos_ant));
+						loop = 1;
+						
+						
+						while (model.getWordAtPosition(pos_ant) && columnaDesde <= 1) { 
+							
+							columnaDesde--;						
+							pos_ant.lineNumber = nroLin;
+							pos_ant.column = columnaDesde;
+							console.log('resta ' + model.getWordAtPosition(pos_ant));
+							loop++;
+							if(loop === 1000){
+								console.log('LOOP 2');
+								break;
+							}							
+						}					
+						*/
+						
+						pos_post = new Object();					
+						pos_post.lineNumber = nroLin;
+						pos_post.column = columnaHasta;
+						let parametro = ''
+						console.log('nrolin ' + nroLin + ' columnaHasta ' + columnaHasta + ' columnaDesde ' + columnaDesde + ' letra ' + letra);
+						columnaFin = 0;
+						if(letra === ' '){
+							/*parametro = ' ';*/
+							columnaFin = columnaHasta + 1;
+						
+							
+						}
+						else{							
+							pos_ant.column = columnaDesde + 2;
+							console.log("loop " + model.getWordAtPosition(pos_ant) + ' columnaDesde ' + columnaDesde);
+							if(model.getWordAtPosition(pos_ant)){
+								console.log("word " + model.getWordAtPosition(pos_ant).word);
+							}
+						
+							if(model.getWordAtPosition(pos_ant) ){
+								/*parametro = model.getWordAtPosition(pos_ant).word.toUpperCase();*/
+								columnaFin = model.getWordAtPosition(pos_ant).endColumn;
+							}
+							else{
+								console.log("errrrror!");
+								columnaHasta++;
+								return 'Error';
+								
+							}
+						
+							
+						}
+						
+						
+						console.log("conseguir columnahasta " + JSON.stringify(model.getWordAtPosition(pos_post)) + " columnaHasta " + columnaHasta + ' parametro ' + parametro);
+						
+						console.log("columnaFin " + columnaFin + " parametro " + parametro);
+						if(columnaFin > columnaHasta){
+							columnaHasta = columnaFin;
+						}
+						/*
+						while (model.getWordAtPosition(pos_post)) {
+							console.log("while conseguir columnahasta " + JSON.stringify(model.getWordAtPosition(pos_post)) + " columnaHasta "  + columnaHasta + " columnaFin " + columnaFin);
+							if (model.getWordAtPosition(pos_post).endColumn === columnaFin){
+								console.log("break");
+								break;
+							}
+							columnaHasta++;						
+							pos_post.lineNumber = nroLin;
+							pos_post.column = columnaHasta;
+						}
+						*/
+						columnaHastaContent = columnaFin;
+						columnaHasta++;
+						
+
+						itemContent = model.getValueInRange({						
+							startLineNumber: nroLin,
+							startColumn: columnaDesde,						
+							endLineNumber: nroLin,
+							endColumn: columnaHastaContent,
+						});
+						itemContent = itemContent.toUpperCase().trim();	
+						console.log("getsug 1 itemContent " + itemContent);
+						
+						let ultimoCaracter = itemContent.substr(itemContent.length - 1, 1);
+						let primerCaracter = itemContent.substr(0, 1);
+						
+						
+						console.log("ultimo caracter " + ultimoCaracter + " primerCaracter " + primerCaracter);
+						
+						if ((ultimoCaracter !== "]" && primerCaracter === "[") || (ultimoCaracter !== "}" && primerCaracter === "{")) {
+							console.log("getsug 2");
+							if(itemContent.substr(0, 1) === "["){
+								itemContent += "]";
+								if(finInicial > 0){
+									columnaHasta = finInicial;
+								}
+								console.log("getsug 3 " + columnaHasta);
+							}
+							else{
+								itemContent += "}";
+								if(finInicial > 0){
+									columnaHasta = finInicial;
+								}
+								console.log("getsug 4 " + columnaHasta);
+							}
+							
+						}
+						
+										
+						console.log("getsug itemContent " + itemContent);
+						
+						let permitidos = {{{gxTpr_permitidos}}}{{{permitidos}}};
+						
+						
+						itemContentAux = itemContent;
+						
+						for(i = 0; i < permitidos.length; i++){
+							itemContentAux = itemContentAux.replaceAll(permitidos[i], '');
+							/*console.log('reemplaza ' + permitidos[i]);*/
+							
+						}
+						
+						/*Si la palabra está adentro del cálculo, que arme el valor {CALCULO}*/
+						/*
+						console.log('parametro ' + parametro + ' itemContentAux ' + itemContentAux);
+						if(itemContentAux.indexOf("{") !== -1 && (itemContentAux.indexOf(' ' + parametro) !== -1 || itemContentAux.indexOf(' }') !== -1 ) ){
+							let itemContentAux2 = "";
+							for(i=0;i < itemContentAux.length;i++){
+								if(itemContentAux.substr(i,1) === " "){
+									break;
+								}							
+								itemContentAux2 += itemContentAux.substr(i,1);
+							}
+							
+							itemContentAux = itemContentAux2;
+							console.log("asdf itemContentAux " + itemContentAux);
+							if(itemContentAux.indexOf('{') != -1){
+								itemContentAux += '}'
+							}					
+							console.log("asdf 2 itemContentAux " + itemContentAux);
+							
+							
+						}
+						*/
+						itemContent = itemContentAux;
+						
+						pos_post.column = columnaHasta;
+						console.log("busca hasta " + model.getWordAtPosition(pos_post));
+						while (!model.getWordAtPosition(pos_post) && columnaHasta < finLinea) {
+							columnaHasta++;						
+							pos_post.column = columnaHasta;
+							console.log("sigue " + model.getWordAtPosition(pos_post) + " con " + columnaHasta); 
+						}					
+						console.log("fin columnaHasta " + columnaHasta + 'columnaDesde ' + columnaDesde);	
+						
+						if(devolver == 'palabra'){
+							return itemContent;
+						}
+						
+						const number = Number(itemContentAux);
+						const number2 = Number(itemContentAux);
+						console.log('itemContentAux ' + itemContentAux);
+						console.log('itemContent ' + itemContent);
+						console.log('parametro ' + parametro);
+						/*acá empieza a validar*/
+						if(!Number.isNaN(number) || itemContentAux === '' || itemContentAux === '/'  || !Number.isNaN(number) ){
+							console.log('es vacio, barra, o número');
+							/*sug = '';*/
+							return '';
+						}
+						else{
+							/*
+							palabraConcepto = '{{gxTpr_palabra_concepto}}{{palabra_concepto}}';
+							if (itemContent.indexOf('{' + palabraConcepto + ' ') != -1) {
+								
+								console.log('jsMonacoEditorHoverPopups Es Concepto! ' + itemContent);		
+								elementos = itemContent.split(' ');
+								if(elementos.length > 2 || itemContent.indexOf(' {{{gxTpr_totalPalabra}}}{{{totalPalabra}}}]') != -1 ){																
+									itemContent = elementos[0] + ' ' + elementos[1] + '}';
+									console.log('itemcontent acortado ' + itemContent);
+								}
+	
+								if (hoverMap.get(itemContent)) {								
+									
+									sug = hoverMap.get(itemContent);
+									
+									ultimaLetraConcepto = itemContent.substr(17, 1);
+									
+									console.log('ultima letra ' + ultimaLetraConcepto);
+									
+								} 
+								else {
+									
+									sug = 'Error';
+								}
+							} 
+							else {*/
+								console.log('asdf itemContent ' + itemContent);
+								const hoverMapContent = hoverMap.get(itemContent);
+								console.log('hoverMapContent ' + hoverMapContent);
+								if (hoverMapContent) {
+									sug = hoverMapContent;
+								}
+								else{
+									sug = 'Error';
+								}
+								return sug;
+								console.log('sug ' + sug);
+							/*}*/
+						}
+					
+				}
+				editorFormula.updateOptions({
+					readOnly: {{{gxTpr_monaco_readOnly}}}{{{monaco_readOnly}}},
+					renderValidationDecorations: "on"
+				});
+				editorFormula.onMouseDown(function (e) {
+					console.log('mouse down!! ' + JSON.stringify(e));
+				
+				
+					if(!model.getWordAtPosition( e.target.position)){ /*Esto lo pongo para que cuando hagan click afuera de un cálculo, donde no hay ninguna palabra, se reseteen las sugerencias*/
+						/*itemContent = ''; nomas ..si esto funciona sacar todo el listener*/
+					}					
+				});	
+					
+			});			
+	}
+
+	function setMonacoEditor(crear, url_sug_QS) {	
+		console.log("setmonacoeditor 1");	
+	
+		require.config({paths: {vs: 'vs'}});
+		console.log("setmonacoeditor 2");	
+		if (window.monaco && window.monaco.editor && window.monaco.editor.create) {
+			iniMonacoEditor(crear, url_sug_QS);
+		}
+		else{
+			require(['vs/editor/editor.main'], function() {			
+				iniMonacoEditor(crear, url_sug_QS);			
+				
+			});	
+		}
+	} 
+
+    /* Función para descartar el AMD loader */
+    function discardMonacoLoader() {        	   
+        delete window.require;
+        delete window.define;
+	   
+        var scripts = document.querySelectorAll('script[src="vs/loader.js"]');
+        for (var i = 0; i < scripts.length; i++) {
+            scripts[i].parentNode.removeChild(scripts[i]);
+        }
+    }
+	function verificarRequireYSetMonacoEditor() {
+		console.log("verificarRequireYSetMonacoEditor");
+	if (typeof require !== 'undefined') {
+        setMonacoEditor(true, '{{{gxTpr_url_sug_QueryString}}}{{{url_sug_QueryString}}}');
+        /* Luego de que hayas terminado de usar el editor */
+       /* discardMonacoLoader();		*/
+		} else {        
+		setTimeout(verificarRequireYSetMonacoEditor, 500);
+	}
+	}
+    /* Uso de las funciones */
+    loadMonacoLoader(function() {
+	    
+	   verificarRequireYSetMonacoEditor(); 
+
+    });
+})();
+
+
+
+
+
+
+</script>

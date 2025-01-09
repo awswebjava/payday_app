@@ -1,0 +1,45 @@
+<script>  
+
+console.log("a3llinktabla {{gxTpr_linkRowId}}{{linkRowId}}");
+
+$(document).ready(function() {
+    console.log("hola");
+    
+    function ejecutarSetLinksMenu{{gxTpr_linkRowId}}{{linkRowId}}() {        
+        if ($('#{{gxTpr_linkRowId}}{{linkRowId}}_0001').length > 0) {            
+            setLinksMenu{{gxTpr_linkRowId}}{{linkRowId}}({{{gxTpr_urls}}}{{{urls}}});
+        } else {            
+            setTimeout(ejecutarSetLinksMenu{{gxTpr_linkRowId}}{{linkRowId}}, 250);
+        }
+    }
+    ejecutarSetLinksMenu{{gxTpr_linkRowId}}{{linkRowId}}();
+});
+
+
+
+function setLinksMenu{{gxTpr_linkRowId}}{{linkRowId}}(urls){
+
+	console.log('urls.length ' + urls.length);
+	var imas1 = 0;
+	for (var i = 0; i < urls.length; i++) {
+		var enlace = document.createElement("a");
+		enlace.href = urls[i]; 
+		imas1++;
+		/*var divHijo = document.getElementById("{{gxTpr_linkRowId}}{{linkRowId}}_000" + imas1);*/
+		var idConCeros = "{{gxTpr_linkRowId}}{{linkRowId}}_" + imas1.toString().padStart(4, '0');
+		var divHijo = document.getElementById(idConCeros);
+		
+		/*console.log('urls[i] ' + urls[i]);*/
+		
+		if(divHijo){
+			/*console.log('asigna');*/
+			enlace.appendChild(divHijo.cloneNode(true));
+			divHijo.parentNode.replaceChild(enlace, divHijo);
+		}
+	
+	}
+}
+
+
+
+</script>
